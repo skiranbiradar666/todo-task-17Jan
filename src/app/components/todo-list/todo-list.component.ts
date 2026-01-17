@@ -18,6 +18,10 @@ export class TodoListComponent implements OnInit {
   @Output() emitDeleteTodo : EventEmitter<string> = new EventEmitter<string>()
   @Input() todoArr !: Array<Itodo>
 
+   trackById(index : number, todo : Itodo){
+    return todo.todoId
+  }
+
   onEdit(todo : Itodo){
     this.emitEditTodo.emit(todo)
   }
