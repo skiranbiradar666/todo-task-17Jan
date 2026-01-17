@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Itodo } from 'src/app/model/todo';
 
 @Component({
@@ -8,7 +9,7 @@ import { Itodo } from 'src/app/model/todo';
 })
 export class TodoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
   }

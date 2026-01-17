@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Itodo } from 'src/app/model/todo';
 
 @Component({
@@ -9,7 +10,7 @@ import { Itodo } from 'src/app/model/todo';
 })
 export class TodoFormComponent implements OnInit, OnChanges {
 
-  constructor() { }
+  constructor(private _snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +45,12 @@ export class TodoFormComponent implements OnInit, OnChanges {
     this.emitUpdateTodo.emit(Update)
     this.isInEditMode = false
     this.todoForm.reset()
+
+    this._snackBar.open('The todoItem is Updated Successfully !', 'close', {
+            verticalPosition : 'top',
+            horizontalPosition : 'center',
+            duration : 3000
+          })
   }
 
 }

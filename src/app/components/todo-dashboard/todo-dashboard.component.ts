@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { todoData } from 'src/app/const/todo';
 import { Itodo } from 'src/app/model/todo';
 
@@ -9,7 +10,7 @@ import { Itodo } from 'src/app/model/todo';
 })
 export class TodoDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _snackBar : MatSnackBar) { }
 
   editTodo !: Itodo
 
@@ -20,6 +21,12 @@ export class TodoDashboardComponent implements OnInit {
 
   getNewTodo(todo : Itodo){
     this.todoArr.push(todo)
+
+    this._snackBar.open('The todoItem Added Successfully !', 'close', {
+            verticalPosition : 'top',
+            horizontalPosition : 'center',
+            duration : 3000
+          })
   } 
   getEditTodo(todo: Itodo){
     this.editTodo = todo
@@ -30,6 +37,11 @@ export class TodoDashboardComponent implements OnInit {
     if(getIndex > -1){
       this.todoArr.splice(getIndex, 1)
     }
+    this._snackBar.open('The todoItem Removed Successfully !', 'close', {
+            verticalPosition : 'top',
+            horizontalPosition : 'center',
+            duration : 3000
+          })
   }
 
    getUpdateTodo(todo : Itodo){
