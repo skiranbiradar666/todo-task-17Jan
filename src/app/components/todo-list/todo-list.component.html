@@ -1,0 +1,23 @@
+
+
+<div class="card mt-4">
+    <div class="card-body">
+        <ul class="list-group">
+            <li *ngFor="let todo of todoArr"
+            class="list-group-item d-flex justify-content-between"><strong>{{todo.todoItem}}</strong>
+            <div>
+                <button 
+                (click)="onEdit(todo)"
+                class="btn btn-primary btn-sm mr-2">Edit</button>
+                <button 
+                (click)="onRemove(todo.todoId)"
+                class="btn btn-danger btn-sm">Remove</button>
+             </div>
+        </li>
+             
+        </ul>
+       
+    </div>
+</div>
+
+

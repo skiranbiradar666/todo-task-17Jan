@@ -1,0 +1,19 @@
+
+
+<div class="card mt-4">
+    <div class="card-body">
+        <form #todoForm="ngForm" (ngSubmit)="onTodoAdd()">
+            <div class="form-group">
+            <label for="todoItem">TodoItem</label>
+            <input  
+            ngModel
+            name="todoItem"
+            #todoItem type="text" class="form-control" id="todoItem">
+        </div>
+        <button class="btn btn-block btn-primary">Add Todo</button>
+         <button type="button"
+         (click)="onTodoUpdate()"
+         class="btn btn-block btn-primary d-none">Update Todo</button>
+    
+        </form>
+</div>
