@@ -14,15 +14,17 @@ export class TodoFormComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
+  isInEditMode = false
+
   @ViewChild('todoForm') todoForm !: NgForm
   @Output() emitNewTodo : EventEmitter<Itodo> = new EventEmitter<Itodo>()
   @Input() editTodo !: Itodo
-  @Input() getEditTodo !: Itodo
+  
   @Output() emitUpdateTodo : EventEmitter<Itodo> = new EventEmitter<Itodo>()
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes['getEditTodo']['currentValue']){
-      // this.isInEditMode = true
-      this.todoForm.form.patchValue(changes['getEditTodo']['currentValue'])
+    if(changes['editTodo']['currentValue']){
+      this.isInEditMode = true
+      this.todoForm.form.patchValue(changes['editTodo']['currentValue'])
     }
   }
   onTodoAdd(){
@@ -37,9 +39,11 @@ export class TodoFormComponent implements OnInit, OnChanges {
 
   onTodoUpdate(){
     let Update : Itodo = {
-      ...this.todoForm.value, todoId : this.getEditTodo.todoId
+      ...this.todoForm.value, todoId : this.editTodo.todoId
     }
     this.emitUpdateTodo.emit(Update)
+    this.isInEditMode = false
+    this.todoForm.reset()
   }
 
 }

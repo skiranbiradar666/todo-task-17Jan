@@ -3,11 +3,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <app-todo-form
-            [getEditTodo]="editTodo"
-            (emitNewTodo)="getNewTodo($event)">
-            (emitUpdateTodo)="getUpdateTodo($event)"
-            </app-todo-form>
+           <app-todo-form
+  [editTodo]="editTodo"
+  (emitNewTodo)="getNewTodo($event)"
+  (emitUpdateTodo)="getUpdateTodo($event)">
+</app-todo-form>
         </div>
         <div class="col-md-6">
             <app-todo-list

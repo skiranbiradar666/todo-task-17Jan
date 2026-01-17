@@ -10,10 +10,13 @@
             name="todoItem"
             #todoItem type="text" class="form-control" id="todoItem">
         </div>
-        <button class="btn btn-block btn-primary">Add Todo</button>
+        <button 
+        *ngIf="!isInEditMode"
+        class="btn btn-block btn-primary">Add Todo</button>
          <button type="button"
          (click)="onTodoUpdate()"
-         class="btn btn-block btn-primary d-none">Update Todo</button>
+         *ngIf="isInEditMode"
+         class="btn btn-block btn-primary">Update Todo</button>
     
         </form>
 </div>

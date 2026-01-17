@@ -34,7 +34,7 @@ export class TodoDashboardComponent implements OnInit {
 
    getUpdateTodo(todo : Itodo){
     let getIndex = this.todoArr.findIndex(t => t.todoId === todo.todoId)
-   
+   console.log(getIndex)
     this.todoArr[getIndex] = todo
     
   }
